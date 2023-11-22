@@ -1,0 +1,21 @@
+
+///////////////////////////////////////////////////////
+
+organism name : Severe acute respiratory syndrome coronavirus 2
+taxonomy : ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
+accession number : NC_045512
+creation date: 18-JUL-2020
+
+///////////////////////////////////////////////////////
+
+organism name : Pangolin coronavirus
+taxonomy : ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus']
+accession number : MT121216
+creation date: 21-JUN-2021
+
+///////////////////////////////////////////////////////
+
+organism name : Bat coronavirus RaTG13
+taxonomy : ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
+accession number : MN996532
+creation date: 24-NOV-2020
