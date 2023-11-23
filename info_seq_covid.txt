@@ -1,21 +1,63 @@
 
 ///////////////////////////////////////////////////////
 
-organism name : Severe acute respiratory syndrome coronavirus 2
-taxonomy : ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
-accession number : NC_045512
-creation date: 18-JUL-2020
+Organism name: Severe acute respiratory syndrome coronavirus 2
+Taxonomy: ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
+Accession number: NC_045512
+Creation date: 18-JUL-2020
+Number of genes: 11
+% of GC : 37.97 % 
+Genes :
+   - name: ORF1ab      location: join{[265:13468](+), [13467:21555](+)}      protein_ID: YP_009724389.1
+   - name: ORF1ab      location: [265:13483](+)      protein_ID: YP_009725295.1
+   - name: S      location: [21562:25384](+)      protein_ID: YP_009724390.1
+   - name: ORF3a      location: [25392:26220](+)      protein_ID: YP_009724391.1
+   - name: E      location: [26244:26472](+)      protein_ID: YP_009724392.1
+   - name: M      location: [26522:27191](+)      protein_ID: YP_009724393.1
+   - name: ORF6      location: [27201:27387](+)      protein_ID: YP_009724394.1
+   - name: ORF7a      location: [27393:27759](+)      protein_ID: YP_009724395.1
+   - name: ORF7b      location: [27755:27887](+)      protein_ID: YP_009725318.1
+   - name: ORF8      location: [27893:28259](+)      protein_ID: YP_009724396.1
+   - name: N      location: [28273:29533](+)      protein_ID: YP_009724397.2
+   - name: ORF10      location: [29557:29674](+)      protein_ID: YP_009725255.1
 
 ///////////////////////////////////////////////////////
 
-organism name : Pangolin coronavirus
-taxonomy : ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus']
-accession number : MT121216
-creation date: 21-JUN-2021
+Organism name: Pangolin coronavirus
+Taxonomy: ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus']
+Accession number: MT121216
+Creation date: 21-JUN-2021
+Number of genes: 11
+% of GC : 38.19 % 
+Genes :
+   - name: orf1ab      location: join{[145:13327](+), [13326:21414](+)}      protein_ID: QIG55944.1
+   - name: S      location: [21420:25218](+)      protein_ID: QIG55945.1
+   - name: ORF3      location: [25226:26054](+)      protein_ID: QIG55946.1
+   - name: E      location: [26078:26306](+)      protein_ID: QIG55947.1
+   - name: M      location: [26356:27025](+)      protein_ID: QIG55948.1
+   - name: ORF6      location: [27035:27221](+)      protein_ID: QIG55949.1
+   - name: ORF7a      location: [27227:27593](+)      protein_ID: QIG55950.1
+   - name: ORF7b      location: [27589:27721](+)      protein_ID: QIG55951.1
+   - name: ORF8      location: [27727:28045](+)      protein_ID: QIG55952.1
+   - name: N      location: [28059:29319](+)      protein_ID: QIG55953.1
+   - name: ORF10      location: [29343:29460](+)      protein_ID: QIG55954.1
 
 ///////////////////////////////////////////////////////
 
-organism name : Bat coronavirus RaTG13
-taxonomy : ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
-accession number : MN996532
-creation date: 24-NOV-2020
+Organism name: Bat coronavirus RaTG13
+Taxonomy: ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
+Accession number: MN996532
+Creation date: 24-NOV-2020
+Number of genes: 10
+% of GC : 38.03 % 
+Genes :
+   - name: orf1ab      location: join{[265:13465](+), [13464:21552](+)}      protein_ID: QHR63299.2
+   - name: S      location: [21559:25369](+)      protein_ID: QHR63300.2
+   - name: NS3      location: [25377:26205](+)      protein_ID: QHR63301.1
+   - name: E      location: [26229:26457](+)      protein_ID: QHR63302.1
+   - name: M      location: [26507:27173](+)      protein_ID: QHR63303.1
+   - name: NS6      location: [27183:27369](+)      protein_ID: QHR63304.1
+   - name: NS7a      location: [27374:27740](+)      protein_ID: QHR63305.1
+   - name: NS7b      location: [27736:27868](+)      protein_ID: QHR63306.1
+   - name: NS8      location: [27874:28240](+)      protein_ID: QHR63307.1
+   - name: N      location: [28254:29514](+)      protein_ID: QHR63308.1

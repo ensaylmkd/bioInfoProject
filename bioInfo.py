@@ -24,15 +24,41 @@ def createSeq(search,newFileName):
 #createSeq(RECHERCHE,NEW_FILE)
 
 # ////////// B //////////
-
+# settings
 seqs = list(SeqIO.parse('seq_covid.gb','gb'))
+      
+# Creation et Ecriture des infos
 with open("info_seq_covid.txt",'w') as fd:
     for seq in seqs:
+        cptGene=0
+        infoGenes=[]
+        for feature in seq.features:
+            if feature.type == 'gene':                                 # compte le nb de gene
+                cptGene+=1
+            if feature.type =='CDS':
+                infoGenes.append([feature.qualifiers['gene'][0],       # infoGenes contient des listes avec :
+                                feature.location,                      # nom du gene, sa position et l'id de la proteine codée
+                                feature.qualifiers['protein_id'][0]])  # de chaque CDS  
+                             
         fd.write("\n///////////////////////////////////////////////////////\n\n")
-        fd.write(f"organism name : {seq.annotations['organism']}\n")
-        fd.write(f"taxonomy : {seq.annotations['taxonomy']}\n")
-        fd.write(f"accession number : {seq.annotations['accessions'][0]}\n")
-        fd.write(f"creation date : {seq.annotations['date']}\n")
+        fd.write(f"Organism name: {seq.annotations['organism']}\n")                 # nom de l'organism
+        fd.write(f"Taxonomy: {seq.annotations['taxonomy']}\n")                      # taxonomie
+        fd.write(f"Accession number: {seq.annotations['accessions'][0]}\n")         # num d'accession
+        fd.write(f"Creation date: {seq.annotations['date']}\n")                     # date de creation
+        fd.write(f"Number of genes: {cptGene}\n")                                   # nb gene 
+        fd.write(f"% of GC : {round(((seq.seq.count('C')+seq.seq.count('G'))/len(seq.seq))*100,2)} % \n") # % de GC
+
+        fd.write(f"Genes :\n")                                                      # info sur les genes
+        for infoGene in infoGenes:
+            fd.write(" "*3+f"- name: {infoGene[0]}")       # Remi vient recentrer ici jsp faire (regarde le .txt)
+            fd.write(" "*6 + f"location: {infoGene[1]}")
+            fd.write(" "*6 + f"protein_ID: {infoGene[2]}")
+            fd.write("\n")
+        
+        
+
+
+
 
 
 
