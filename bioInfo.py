@@ -2,6 +2,7 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
 from Bio import Entrez
+from Bio.Align.Applications import MafftCommandline
 
 Entrez.email = "user@gmail.com"
 # ////////// A //////////
@@ -63,17 +64,22 @@ def gbToInfo(file):
 
 gbToInfo(FILE)
 # //////////////////// C ///////////////////////
+def multiFastaS():
+    seqs = list(SeqIO.parse('seq_covid.gb','gb'))
+    with open("spike.fasta",'w') as fd:
+        for seq in seqs:
+            for feature in seq.features:
+                if feature.type == 'CDS' and 'translation' in feature.qualifiers:
+                    if feature.qualifiers['gene'][0] == 'S':
+                        fd.write(f">{feature.qualifiers['protein_id'][0]} {feature.qualifiers['product'][0]} [{seq.annotations['organism']}]\n")
+                        fd.write("\n".join([feature.qualifiers['translation'][0][i:i+70] for i in range(0, len(feature.qualifiers['translation'][0]),70)])+"\n")
 
-seqs = list(SeqIO.parse('seq_covid.gb','gb'))
-with open("spike.fasta",'w') as fd:
-    for seq in seqs:
-        for feature in seq.features:
-            if feature.type == 'CDS' and 'translation' in feature.qualifiers:
-                if feature.qualifiers['gene'][0] == 'S':
-                    fd.write(f">{feature.qualifiers['protein_id'][0]} {feature.qualifiers['product'][0]} [{seq.annotations['organism']}]\n")
-                    fd.write("\n".join([feature.qualifiers['translation'][0][i:i+70] for i in range(0, len(feature.qualifiers['translation'][0]),70)])+"\n")
-                    
-                
+# //////////////////// D ///////////////////////
+
+commande = MafftCommandline(input="spike.fasta")
+myStdout, myStderr = commande()
+with open("aln-spike.fasta", 'w') as w:
+    w.write(myStdout)      
 
 
 
