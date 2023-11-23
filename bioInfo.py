@@ -28,10 +28,10 @@ def researchToGbSeq(search,newFileName):
 
 #setup
 FILE='seq_covid.gb'
-def gbToInfo():
+def gbToInfo(file):
     '''Creer un txt contenant les infos d'une séquence depuis un fichier GenBank'''
     # settings
-    seqs = list(SeqIO.parse(FILE,'gb'))
+    seqs = list(SeqIO.parse(file,'gb'))
 
     # Lecture, creation et Ecriture des infos
     with open("info_seq_covid.txt",'w') as fd:
@@ -60,10 +60,20 @@ def gbToInfo():
                 fd.write(" "*6 + f"location: {infoGene[1]}")
                 fd.write(" "*6 + f"protein_ID: {infoGene[2]}")
                 fd.write("\n")
-        
-        
 
+gbToInfo(FILE)
+# //////////////////// C ///////////////////////
 
+seqs = list(SeqIO.parse('seq_covid.gb','gb'))
+with open("spike.fasta",'w') as fd:
+    for seq in seqs:
+        for feature in seq.features:
+            if feature.type == 'CDS' and 'translation' in feature.qualifiers:
+                if feature.qualifiers['gene'][0] == 'S':
+                    fd.write(f">{feature.qualifiers['protein_id'][0]} {feature.qualifiers['product'][0]} [{seq.annotations['organism']}]\n")
+                    fd.write("\n".join([feature.qualifiers['translation'][0][i:i+70] for i in range(0, len(feature.qualifiers['translation'][0]),70)])+"\n")
+                    
+                
 
 
 
