@@ -67,17 +67,17 @@ gbToInfo(FILE)
 
 def multiFastaS(gene: str="S"):
     seqs = list(SeqIO.parse('seq_covid.gb','gb'))
-    with open("spike.fasta",'w') as fd:
-        for seq in seqs:
-            for feature in seq.features:
-                if feature.type == 'CDS' and 'translation' in feature.qualifiers:
+    with open("spike.fasta",'w') as fd:                                           # On ecrit dans le fichier spike.fasta :
+        for seq in seqs:                                                          #     (pour chaque sequence dans seq_covid.gb
+            for feature in seq.features:                                          #     pour chaque gene == au gene demandé (si le l'element est de type CDS et a une traduction proteique => c'est un gene à prelever ) )
+                if feature.type == 'CDS' and 'translation' in feature.qualifiers: # les fasta proteique de tout les genes demandé .
                     if feature.qualifiers['gene'][0] == gene:
                         fd.write(f">{feature.qualifiers['protein_id'][0]} {feature.qualifiers['product'][0]} [{seq.annotations['organism']}]\n")
                         fd.write("\n".join([feature.qualifiers['translation'][0][i:i+70] for i in range(0, len(feature.qualifiers['translation'][0]),70)])+"\n")
 
 
 # //////////////////// D ///////////////////////
-def alignement():
+def alignement():                                   # code d'allignement fournit
     commande = MafftCommandline(input="spike.fasta")
     myStdout, myStderr = commande()
     with open("aln-spike.fasta", 'w') as w:
@@ -99,7 +99,6 @@ def comparaison(gene: str="S"):
         difference[0] += 1
     if seq[2] != seq[0]: # Si pangolin différent de homme
         difference[1] += 1
-
 
     with open(f"resultatComparaison_gene{gene}.txt", "w") as f:
         f.write(f"{'POSITION':^15}{'HOMME':^15}{'CHAUVE-SOURIS':^15}{'PANGOLIN':^15}\n")
