@@ -1,28 +1,6 @@
 
 ///////////////////////////////////////////////////////
 
-Organism name: Severe acute respiratory syndrome coronavirus 2
-Taxonomy: ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
-Accession number: NC_045512
-Creation date: 18-JUL-2020
-Number of genes: 11
-% of GC : 37.97 % 
-Genes :
-   - name: ORF1ab      location: join{[265:13468](+), [13467:21555](+)}      protein_ID: YP_009724389.1
-   - name: ORF1ab      location: [265:13483](+)      protein_ID: YP_009725295.1
-   - name: S      location: [21562:25384](+)      protein_ID: YP_009724390.1
-   - name: ORF3a      location: [25392:26220](+)      protein_ID: YP_009724391.1
-   - name: E      location: [26244:26472](+)      protein_ID: YP_009724392.1
-   - name: M      location: [26522:27191](+)      protein_ID: YP_009724393.1
-   - name: ORF6      location: [27201:27387](+)      protein_ID: YP_009724394.1
-   - name: ORF7a      location: [27393:27759](+)      protein_ID: YP_009724395.1
-   - name: ORF7b      location: [27755:27887](+)      protein_ID: YP_009725318.1
-   - name: ORF8      location: [27893:28259](+)      protein_ID: YP_009724396.1
-   - name: N      location: [28273:29533](+)      protein_ID: YP_009724397.2
-   - name: ORF10      location: [29557:29674](+)      protein_ID: YP_009725255.1
-
-///////////////////////////////////////////////////////
-
 Organism name: Pangolin coronavirus
 Taxonomy: ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus']
 Accession number: MT121216
@@ -61,3 +39,25 @@ Genes :
    - name: NS7b      location: [27736:27868](+)      protein_ID: QHR63306.1
    - name: NS8      location: [27874:28240](+)      protein_ID: QHR63307.1
    - name: N      location: [28254:29514](+)      protein_ID: QHR63308.1
+
+///////////////////////////////////////////////////////
+
+Organism name: Severe acute respiratory syndrome coronavirus 2
+Taxonomy: ['Viruses', 'Riboviria', 'Orthornavirae', 'Pisuviricota', 'Pisoniviricetes', 'Nidovirales', 'Cornidovirineae', 'Coronaviridae', 'Orthocoronavirinae', 'Betacoronavirus', 'Sarbecovirus', 'Severe acute respiratory syndrome-related coronavirus']
+Accession number: NC_045512
+Creation date: 18-JUL-2020
+Number of genes: 11
+% of GC : 37.97 % 
+Genes :
+   - name: ORF1ab      location: join{[265:13468](+), [13467:21555](+)}      protein_ID: YP_009724389.1
+   - name: ORF1ab      location: [265:13483](+)      protein_ID: YP_009725295.1
+   - name: S      location: [21562:25384](+)      protein_ID: YP_009724390.1
+   - name: ORF3a      location: [25392:26220](+)      protein_ID: YP_009724391.1
+   - name: E      location: [26244:26472](+)      protein_ID: YP_009724392.1
+   - name: M      location: [26522:27191](+)      protein_ID: YP_009724393.1
+   - name: ORF6      location: [27201:27387](+)      protein_ID: YP_009724394.1
+   - name: ORF7a      location: [27393:27759](+)      protein_ID: YP_009724395.1
+   - name: ORF7b      location: [27755:27887](+)      protein_ID: YP_009725318.1
+   - name: ORF8      location: [27893:28259](+)      protein_ID: YP_009724396.1
+   - name: N      location: [28273:29533](+)      protein_ID: YP_009724397.2
+   - name: ORF10      location: [29557:29674](+)      protein_ID: YP_009725255.1
