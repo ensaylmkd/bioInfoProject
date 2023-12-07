@@ -1,7 +1,3 @@
-'''Erreur à corriger : les résultats des requetes changent avec le temps 
-(renvoie les résultats dans un ordre different) et certaine presentation 
-de donné (étape E) ne s'adapte pas à ces changements donc sont faux '''
-
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
@@ -12,19 +8,22 @@ Entrez.email = "user@gmail.com"
 # /////////////////////// A ////////////////////////
 
 # setup
-RECHERCHE_A = "nucleotide",'(SARS-CoV-2[organism] AND refseq []) OR SARSr-CoV RaTG13 genome OR MP789 MT121216'
+RECHERCHE_A = "nucleotide",'(SARS-CoV-2[organism] AND refseq []) OR SARSr-CoV RaTG13 genome OR MP789 MT121216' # homme , chauve souris , pangolin
 NEW_FILE_A = "seq_covid"
 
-def researchToGbSeq(search,newFileName):
+def researchToGbSeq(searchs,newFileName):
     '''Ecris le fichier gb correspondant à une recherche dans nucleotide 
         search      : liste str : contient le db et la recherche 
         newFileName : str       : le nom du fichier qui sera creer'''
     # on recupere les id des séquences que l'on veut avec une requete
-    request = Entrez.esearch(search[0],search[1])
-    research = Entrez.read(request)
-    request.close()
+    Id=[]
+    for search in searchs[1].split(' OR '):
+        request = Entrez.esearch(searchs[0],search)
+        research = Entrez.read(request)
+        request.close()
+        Id.append(research['IdList'][0])
     # on récupere le fetch des sequences en gb avec une requete
-    request = Entrez.efetch(db=search[0],id=research['IdList'],rettype='gb',retmode='text')
+    request = Entrez.efetch(db=searchs[0],id=Id,rettype='gb',retmode='text')
     # on les converties en fichier gb à l'aide de SeqIO
     seqs = SeqIO.parse(request,'gb')
     SeqIO.write(seqs,f"{newFileName}.gb","gb")
@@ -63,9 +62,9 @@ def gbToInfo(file):
 
             fd.write(f"Genes :\n")                                                      # info sur les genes
             for infoGene in infoGenes:
-                fd.write(" "*3+f"- name: {infoGene[0]}")       # Remi vient recentrer ici jsp faire (regarde le .txt)
-                fd.write(" "*6 + f"location: {infoGene[1]}")
-                fd.write(" "*6 + f"protein_ID: {infoGene[2]}")
+                fd.write(f" - name: {str(infoGene[0]): <12}")
+                fd.write(f"location: {str(infoGene[1]): <45}")
+                fd.write(f"protein_ID: {infoGene[2]}")
                 fd.write("\n")
 
 # gbToInfo(FILE)
@@ -81,14 +80,13 @@ def multiFasta(gene: str="S"):
                         fd.write(f">{feature.qualifiers['protein_id'][0]} {feature.qualifiers['product'][0]} [{seq.annotations['organism']}]\n")
                         fd.write("\n".join([feature.qualifiers['translation'][0][i:i+70] for i in range(0, len(feature.qualifiers['translation'][0]),70)])+"\n")
 
-
+# multiFasta()
 # //////////////////// D ///////////////////////
 def alignement():                                   # code d'allignement fournit
     commande = MafftCommandline(input="spike.fasta")
     myStdout, myStderr = commande()
     with open("aln-spike.fasta", 'w') as w:
         w.write(myStdout)
-
 
 
 # /////////////////// E /////////////////////////
@@ -160,7 +158,7 @@ def covidGeneToGb(gene):
     # avec la fonction de l'étape A
     researchToGbSeq(['protein',rechercheI],f'covidProt_{gene}')
 
-covidGeneToGb('S')
+# covidGeneToGb('M')
 
                
 
