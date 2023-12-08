@@ -160,7 +160,87 @@ def covidGeneToGb(gene):
 
 # covidGeneToGb('M')
 
-               
+#////////////////// J //////////////////////// 
+
+def aln_pair(seq1, seq2,shown=False):
+    '''renvoie les alignements entre 2 sequences
+    seq1 : str : sequence à alligner n1
+    seq2 : str : sequence à alligner n2
+    shown : bool : affiche les étapes dans le terminal  '''
+    seq1aln,seq2aln="",""
+    # initialisation de la matrice
+    column,raw=len(seq1)+1,len(seq2)+1
+    alnMat=[[0 for _ in range(column)] for _ in range(raw)]
+    alnMat[0]=list(range(0,-column,-1))
+    for i in range(raw) :
+        alnMat[i][0]=-i
+
+    # remplissage de la matrice 
+     
+    for j in range(1,raw):
+        for i in range(1,column):
+            simiPoint = 2 if seq1[i-1] == seq2[j-1] else -1
+            alnMat[j][i] = max(alnMat[j-1][i-1]+simiPoint,
+                               alnMat[j][i-1]-1,
+                               alnMat[j-1][i]-1)
+    if shown:
+        print("matrice de score :")
+        [print(raw)for raw in alnMat]
+        print()
+
+    # recherche d'un chemin optimal
+    cheminMat =[[0 for _ in range(column)] for _ in range(raw)]
+    i,j = 0,0
+    while i != column-1 or j!=raw-1 :
+        if i == column-1:
+            j+=1
+        elif j==raw-1:
+            i+=1
+        else:
+            optiWay=max(alnMat[j+1][i+1],
+                                alnMat[j][i+1],
+                                alnMat[j+1][i])        
+            if optiWay == alnMat[j+1][i+1]:
+                i+=1
+                j+=1
+            elif optiWay == alnMat[j][i+1] :
+                i+=1
+            else :
+                j+=1
+        cheminMat[j][i]=1
+    if shown:
+        print("matrice d'un des chemins optimaux :")
+        [print(raw)for raw in cheminMat]
+    # lecture de la matrice optimal 
+    i,j=0,0
+    while i != column-1 or j!=raw-1 :
+        if i == column-1:
+            seq2aln+=seq2[j]
+            seq1aln+="-"
+            j += 1
+        elif j == raw-1:
+            seq1aln+=seq1[i]
+            seq2aln+="-"
+            i+=1
+        else:
+            if cheminMat[j][i+1] == 1 :
+                seq1aln+=seq1[i]
+                seq2aln+="-"
+                i+=1
+            elif cheminMat[j+1][i+1] == 1 :
+                seq1aln+=seq1[i]
+                seq2aln+=seq1[j]
+                j+=1
+                i+=1
+            else :
+                seq2aln+=seq2[j]
+                seq1aln+="-"
+                j+=1
+            
+    return seq1aln,seq2aln
+            
+
+    
 
 
 
